@@ -2,33 +2,23 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 import ArticlePreview from '../components/ArticlePreview';
-import Pagination from '../components/Pagination';
 import FeedToggle from '../components/FeedToggle';
-import SideBar from '../components/SideBar';
+import ProfileBanner from '../components/ProfileBanner';
 
-function IndexPage() {
+function Profile() {
 	return (
 		<Layout title="Condit">
-			<div className="home-page">
-				<div className="banner">
-					<div className="container">
-						<h1 className="logo-font">conduit</h1>
-						<p>A place to share your knowledge.</p>
-					</div>
-				</div>
+			<div className="profile-page">
+				<ProfileBanner />
 				<div className="container">
 					<div className="row">
-						<div className="col-md-9">
+						<div className="col-xs-12 col-md-10 offset-md-1">
 							<FeedToggle />
 							<div>
 								{[1, 2, 3, 4].map((_, i) => (
 									<ArticlePreview key={i} />
 								))}
 							</div>
-							<Pagination />
-						</div>
-						<div className="col-md-3">
-							<SideBar />
 						</div>
 					</div>
 				</div>
@@ -37,4 +27,4 @@ function IndexPage() {
 	);
 }
 
-export default IndexPage;
+export default Profile;
