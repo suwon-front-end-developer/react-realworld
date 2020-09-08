@@ -7,6 +7,7 @@ import { CacheProvider } from "@emotion/core";
 
 // Use only { cache } from 'emotion'. Don't use { css }.
 import { cache } from "emotion";
+import "tailwindcss/dist/base.min.css";
 
 // import { globalStyles } from "../shared/styles";
 
