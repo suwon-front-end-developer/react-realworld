@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import Layout from "@/components/Layout";
+import Banner from "@/components/Banner";
 
 function Index(): ReactNode {
   return (
     <Layout>
-      <h1>RealWorld</h1>
+      <Banner title="conduit" description="A place to share your knowledge." />
+      <h1>Home</h1>
     </Layout>
   );
 }
