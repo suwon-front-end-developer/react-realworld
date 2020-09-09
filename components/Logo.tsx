@@ -22,4 +22,5 @@ const StyledLogo = styled("h1")`
 
   /* TODO: tailwind.config 색상값 정의 */
   color: #5cb85c;
+  font-family: "Titillium Web";
 `;
