@@ -1,15 +1,12 @@
 import Header from "@/components/Header";
-import { styled } from "twin.macro";
 
 function Layout({ children }) {
   return (
     <>
       <Header />
-      <Body>{children}</Body>
+      <div>{children}</div>
     </>
   );
 }
 
 export default Layout;
-
-const Body = styled("div")``;
