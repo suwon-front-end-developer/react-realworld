@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { NextPage } from "next";
 
-function SettingPage(): ReactNode {
+const SettingPage: NextPage = () => {
   return (
     <>
       <h1>SettingPage</h1>
     </>
   );
-}
+};
 
 export default SettingPage;

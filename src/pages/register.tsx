@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { NextPage } from "next";
 
-function RegisterPage(): ReactNode {
+const RegisterPage: NextPage = () => {
   return (
     <>
       <h1>RegisterPage</h1>
     </>
   );
-}
+};
 
 export default RegisterPage;

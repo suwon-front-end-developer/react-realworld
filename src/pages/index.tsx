@@ -1,12 +1,11 @@
-import { ReactNode } from "react";
+import { NextPage } from "next";
 import Head from "next/head";
 import Banner from "@/components/Banner";
 import FeedItem from "@/components/Feed/Item";
 import "twin.macro";
 
-export default function Index(): ReactNode {
+const Index: NextPage = () => {
   const feedList = new Array(10).fill("");
-  console.log(feedList);
   return (
     <>
       <Head>
@@ -38,4 +37,6 @@ export default function Index(): ReactNode {
       </div>
     </>
   );
-}
+};
+
+export default Index;

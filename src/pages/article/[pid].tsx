@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { NextPage } from "next";
 
-function ArticlePage(): ReactNode {
+const ArticlePage: NextPage = () => {
   return (
     <>
       <h1>ArticlePage</h1>
     </>
   );
-}
+};
 
 export default ArticlePage;

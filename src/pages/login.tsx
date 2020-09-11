@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { NextPage } from "next";
 
-function LoginPage(): ReactNode {
+const LoginPage: NextPage = () => {
   return (
     <>
       <h1>LoginPage</h1>
     </>
   );
-}
+};
 
 export default LoginPage;
