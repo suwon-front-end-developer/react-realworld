@@ -1,11 +1,10 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import ArticleAPI from "@/api/article";
 import Banner from "@/components/Banner";
-import FeedItem from "@/components/Feed/Item";
 import "twin.macro";
 
-const Index: NextPage = () => {
-  const feedList = new Array(10).fill("");
+const Index: NextPage = ({ articles }) => {
   return (
     <>
       <Head>
@@ -16,18 +15,9 @@ const Index: NextPage = () => {
 
       <div tw="py-4 flex mx-auto max-w-screen-lg">
         <div tw="px-4 flex-auto">
-          {feedList && (
-            <div role="list">
-              {feedList.map((val, idx) => (
-                <FeedItem
-                  key={idx}
-                  title="제목"
-                  description="내용"
-                  role="listitem"
-                />
-              ))}
-            </div>
-          )}
+          {articles?.map((article) => (
+            <div key={article.slug}>{article.title}</div>
+          ))}
         </div>
 
         {/* Popular Tags 템플릿 컴포넌트 */}
@@ -40,3 +30,12 @@ const Index: NextPage = () => {
 };
 
 export default Index;
+
+export async function getStaticProps() {
+  const { articles } = await ArticleAPI.all();
+  return {
+    props: {
+      articles,
+    },
+  };
+}
