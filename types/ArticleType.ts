@@ -1,9 +1,9 @@
-export interface IArticles {
-  articles: ArticleType[];
+export interface Articles {
+  articles: Article[];
   articlesCount: number;
 }
 
-export type ArticleType = {
+export interface Article {
   title: string;
   slug: string;
   body: string;
@@ -14,11 +14,11 @@ export type ArticleType = {
   favoritessCount: number;
   createdAt: string;
   updatedAt: string;
-};
+}
 
-export type Author = {
+export interface Author {
   username: string;
   bio: string;
   image: string;
   following: boolean;
-};
+}
