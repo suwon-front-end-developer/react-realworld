@@ -7,17 +7,17 @@ type Props = {
 
 function Logo({ text }: Props) {
   return (
-    <StyledLogo>
-      <Link href="/">
-        <a>{text}</a>
-      </Link>
-    </StyledLogo>
+    <Link href="/">
+      <a>
+        <StyledLogo>{text}</StyledLogo>
+      </a>
+    </Link>
   );
 }
 
 export default Logo;
 
-const StyledLogo = styled("h1")`
+const StyledLogo = styled("strong")`
   ${tw`font-bold text-2xl`}
 
   /* TODO: tailwind.config 색상값 정의 */
