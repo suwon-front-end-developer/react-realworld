@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import ArticleAPI from "@/api/article";
 import Banner from "@/components/Banner";
-import { Articles, Article } from "@/types/ArticleType";
+import { Articles, Article } from "@/types/Article";
 import "twin.macro";
 
 interface ArticlePageProps {
