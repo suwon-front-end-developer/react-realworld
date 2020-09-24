@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import Main from './Main'
@@ -24,10 +24,24 @@ const initialState: Todo[] = [
 
 const Home = () => {
   const [todos, setTodos] = useState<Todo[]>(initialState)
+  const nextId = useRef<number>(3)
+
+  const onInput = useCallback(
+    content => {
+      const todo = {
+        id: nextId.current,
+        content,
+        isCompleted: false
+      }
+      setTodos([...todos, todo])
+      nextId.current += 1
+    },
+    [todos]
+  )
 
   return (
     <div className="todoapp">
-      <Header />
+      <Header onInput={onInput} />
       <Main todos={todos} />
       <Footer />
     </div>

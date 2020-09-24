@@ -2,12 +2,16 @@ import React from 'react'
 import TodoInput from '../../components/TodoInput'
 import TodoToggleAll from '../../components/TodoToggleAll'
 
-const Header = () => {
+type InputForm = {
+  onInput: (content: string) => void
+}
+
+const Header = ({onInput}: InputForm) => {
   return (
     <div>
       <h1>TODOS</h1>
       <TodoToggleAll />
-      <TodoInput />
+      <TodoInput onInput={onInput} />
     </div>
   )
 }

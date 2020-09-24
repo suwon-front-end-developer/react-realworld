@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+
 interface Todo {
   id: number;
   content: string;
@@ -18,12 +19,12 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
       <li className={classNames({ completed: isCompleted })} data-id={id}>
         <div className="view">
           <input className="toggle" type="checkbox"
-            checked={isCompleted ? true: false}
+            checked={isCompleted ? true : false}
           />
           <label className="label">{content}</label>
           <button className="destroy"></button>
         </div>
-        <input className="edit" placeholder={content} value="" />
+        <input className="edit" placeholder={content} />
       </li>
     </>
   )

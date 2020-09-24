@@ -1,5 +1,5 @@
-import React from 'react'
-import TodoList from '../../components/TodoList'
+import React from 'react';
+import TodoList from '../../components/TodoList';
 
 interface Todo {
   id: number;
@@ -11,7 +11,7 @@ interface Props {
   todos: Todo[];
 }
 
-const Main = ({todos}: Props) => {
+const Main = ({ todos }: Props) => {
   console.log(todos);
   return (
     <div>
