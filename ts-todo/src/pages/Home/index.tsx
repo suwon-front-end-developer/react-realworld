@@ -12,12 +12,12 @@ interface Todo {
 const initialState: Todo[] = [
   {
     id: 1,
-    content: '타입 뽀개기',
+    content: '타입 뽀개기1',
     isCompleted: false
   },
   {
     id: 2,
-    content: '타입 뿌수기',
+    content: '타입 뿌수기2',
     isCompleted: true
   }
 ]
@@ -39,10 +39,18 @@ const Home = () => {
     [todos]
   )
 
+  const onRemove = useCallback(
+    (id) => {
+      let newTodo = todos.filter(todo => todo.id !== id)
+      setTodos(newTodo)
+    },
+    [todos],
+  )
+
   return (
     <div className="todoapp">
       <Header onInput={onInput} />
-      <Main todos={todos} />
+      <Main todos={todos} onRemove={onRemove} />
       <Footer />
     </div>
   )

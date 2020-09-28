@@ -9,9 +9,15 @@ interface Todo {
 
 interface Props {
   todos: Todo[];
+  onRemove: (id: number) => void;
 }
 
-const TodoItem = ({ todo }: { todo: Todo }) => {
+interface ItemForm {
+  todo: Todo;
+  onRemove: (id: number) => void;
+}
+
+const TodoItem = ({ todo, onRemove }: ItemForm) => {
   const { id, content, isCompleted } = todo;
 
   return (
@@ -22,7 +28,7 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
             checked={isCompleted ? true : false}
           />
           <label className="label">{content}</label>
-          <button className="destroy"></button>
+          <button className="destroy" onClick={() => onRemove(id)}></button>
         </div>
         <input className="edit" placeholder={content} />
       </li>
@@ -30,12 +36,12 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
   )
 }
 
-const TodoList = ({ todos }: Props) => {
+const TodoList = ({ todos, onRemove }: Props) => {
   return (
     <div>
       <ul id="todo-list" className="todo-list">
         {todos.map(todo => (
-          <TodoItem todo={todo} key={todo.id} />
+          <TodoItem todo={todo} key={todo.id} onRemove={onRemove} />
         ))}
       </ul>
     </div>
