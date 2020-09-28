@@ -10,13 +10,14 @@ interface Todo {
 interface Props {
   todos: Todo[];
   onRemove: (id: number) => void;
+  onToggle: (id: number) => void;
 }
 
-const Main = ({ todos, onRemove }: Props) => {
+const Main = ({ todos, onRemove, onToggle }: Props) => {
 
   return (
     <div>
-      <TodoList todos={todos} onRemove={onRemove} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
     </div>
   )
 }

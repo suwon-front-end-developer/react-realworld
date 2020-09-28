@@ -41,7 +41,17 @@ const Home = () => {
 
   const onRemove = useCallback(
     (id) => {
-      let newTodo = todos.filter(todo => todo.id !== id)
+      const newTodo = todos.filter(todo => todo.id !== id);
+      setTodos(newTodo);
+    },
+    [todos],
+  )
+
+  const onToggle = useCallback(
+    (id) => {
+      const index = todos.findIndex(todo => todo.id === id);
+      let newTodo = [...todos]
+      newTodo[index].isCompleted = !todos[index].isCompleted;
       setTodos(newTodo)
     },
     [todos],
@@ -50,7 +60,7 @@ const Home = () => {
   return (
     <div className="todoapp">
       <Header onInput={onInput} />
-      <Main todos={todos} onRemove={onRemove} />
+      <Main todos={todos} onRemove={onRemove} onToggle={onToggle} />
       <Footer />
     </div>
   )
