@@ -1,4 +1,4 @@
-import { Author } from "@/types/Author";
+import { AuthorType } from "types/Author";
 
 export interface ArticlesType {
   articles: ArticleType[];
@@ -10,7 +10,7 @@ export interface ArticleType {
   slug: string;
   body: string;
   tagList: string[];
-  author: Author;
+  author: AuthorType;
   description: string;
   favorited: boolean;
   favoritessCount: number;
