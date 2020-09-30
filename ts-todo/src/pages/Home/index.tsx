@@ -57,10 +57,20 @@ const Home = () => {
     [todos],
   )
 
+  const onEdit = useCallback(
+    (id, content) => {
+      const index = todos.findIndex(todo => todo.id === id);
+      let newTodo = [...todos]
+      newTodo[index].content = content;
+      setTodos(newTodo)
+    },
+    [todos],
+  )
+
   return (
     <div className="todoapp">
       <Header onInput={onInput} />
-      <Main todos={todos} onRemove={onRemove} onToggle={onToggle} />
+      <Main todos={todos} onRemove={onRemove} onToggle={onToggle} onEdit={onEdit} />
       <Footer />
     </div>
   )
