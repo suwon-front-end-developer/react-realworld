@@ -1,9 +1,10 @@
+import "twin.macro";
 import { NextPage } from "next";
 import Head from "next/head";
 import ArticleAPI from "api/article";
-import Banner from "components/Banner";
 import { ArticlesType, ArticleType } from "types/Article";
-import "twin.macro";
+import Banner from "components/Banner";
+import ArticleItem from "components/article/Item";
 
 interface ArticlePageProps {
   articles: ArticleType[];
@@ -18,10 +19,10 @@ const Index: NextPage<ArticlePageProps> = ({ articles }) => {
 
       <Banner title="conduit" description="A place to share your knowledge." />
 
-      <div tw="py-4 flex mx-auto max-w-screen-lg">
+      <div tw="py-8 flex mx-auto max-w-screen-lg">
         <div tw="px-4 flex-auto">
-          {articles?.map((article) => (
-            <div key={article.slug}>{article.title}</div>
+          {articles?.map((article: ArticleType) => (
+            <ArticleItem key={article.slug} article={article} />
           ))}
         </div>
 

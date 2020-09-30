@@ -1,3 +1,3 @@
-export default function FeedAvatar() {
+export default function ArticleAvatar() {
   return <div>FeedAvatar</div>;
 }
