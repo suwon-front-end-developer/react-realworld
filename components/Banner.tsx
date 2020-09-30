@@ -9,7 +9,7 @@ function Banner({ title, description }: Props) {
   return (
     <StyledBanner>
       {title && <Title>{title}</Title>}
-      {description && <p tw="text-xl">{description}</p>}
+      {description && <Text>{description}</Text>}
     </StyledBanner>
   );
 }
@@ -25,6 +25,11 @@ const StyledBanner = styled("div")`
 
 const Title = styled("h1")`
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  font-family: "Titillium Web";
   ${tw`mb-4 text-6xl font-bold`};
+`;
+
+const Text = styled("p")`
+  font-family: "Source Sans Pro";
+  font-weight: 200;
+  ${tw`text-2xl`}
 `;
