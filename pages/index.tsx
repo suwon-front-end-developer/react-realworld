@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import ArticleAPI from "@/api/article";
-import Banner from "@/components/Banner";
-import { ArticlesType, ArticleType } from "@/types/Article";
+import ArticleAPI from "api/article";
+import Banner from "components/Banner";
+import { ArticlesType, ArticleType } from "types/Article";
 import "twin.macro";
 
 interface ArticlePageProps {

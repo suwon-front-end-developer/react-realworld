@@ -6,7 +6,7 @@ import NextApp from "next/app";
 import Head from "next/head";
 import { cache } from "emotion";
 import { CacheProvider } from "@emotion/core";
-import Layout from "@/components/Layout";
+import Layout from "components/Layout";
 
 import "tailwindcss/dist/base.min.css";
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SERVER_BASE_URL } from "@/constant";
+import { SERVER_BASE_URL } from "lib/constant";
 
 export default {
   async all() {
