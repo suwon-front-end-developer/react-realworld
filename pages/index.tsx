@@ -2,11 +2,11 @@ import { NextPage } from "next";
 import Head from "next/head";
 import ArticleAPI from "@/api/article";
 import Banner from "@/components/Banner";
-import { Articles, Article } from "@/types/Article";
+import { ArticlesType, ArticleType } from "@/types/Article";
 import "twin.macro";
 
 interface ArticlePageProps {
-  articles: Article[];
+  articles: ArticleType[];
 }
 
 const Index: NextPage<ArticlePageProps> = ({ articles }) => {
@@ -37,7 +37,7 @@ const Index: NextPage<ArticlePageProps> = ({ articles }) => {
 export default Index;
 
 export async function getStaticProps() {
-  const { articles }: Articles = await ArticleAPI.all();
+  const { articles }: ArticlesType = await ArticleAPI.all();
   return {
     props: {
       articles,

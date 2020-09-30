@@ -1,11 +1,11 @@
 import { Author } from "@/types/Author";
 
-export interface Articles {
-  articles: Article[];
+export interface ArticlesType {
+  articles: ArticleType[];
   articlesCount: number;
 }
 
-export interface Article {
+export interface ArticleType {
   title: string;
   slug: string;
   body: string;
