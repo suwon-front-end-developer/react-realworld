@@ -20,9 +20,9 @@ const Index: NextPage<ArticlePageProps> = ({ articles }) => {
       <Banner title="conduit" description="A place to share your knowledge." />
 
       <div tw="py-8 flex mx-auto max-w-screen-lg">
-        <div tw="px-4 flex-auto">
+        <div tw="px-4 flex-auto" role="list">
           {articles?.map((article: ArticleType) => (
-            <ArticleItem key={article.slug} article={article} />
+            <ArticleItem key={article.slug} article={article} role="listitem" />
           ))}
         </div>
 
