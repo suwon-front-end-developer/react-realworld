@@ -41,8 +41,8 @@ const Home = () => {
 
   const onRemove = useCallback(
     (id) => {
-      const newTodo = todos.filter(todo => todo.id !== id);
-      setTodos(newTodo);
+      const newTodos = todos.filter(todo => todo.id !== id);
+      setTodos(newTodos);
     },
     [todos],
   )
@@ -50,26 +50,46 @@ const Home = () => {
   const onToggle = useCallback(
     (id) => {
       const index = todos.findIndex(todo => todo.id === id);
-      let newTodo = [...todos]
-      newTodo[index].isCompleted = !todos[index].isCompleted;
-      setTodos(newTodo)
+      let newTodos = [...todos]
+      newTodos[index].isCompleted = !todos[index].isCompleted;
+      setTodos(newTodos)
     },
     [todos],
+  )
+
+  const onToggleAll = useCallback(
+    (type) => {
+      let newTodos = [...todos]
+      newTodos.map(todo => todo.isCompleted = type)
+      setTodos(newTodos)
+    }, [todos]
   )
 
   const onEdit = useCallback(
     (id, content) => {
       const index = todos.findIndex(todo => todo.id === id);
-      let newTodo = [...todos]
-      newTodo[index].content = content;
-      setTodos(newTodo)
+      let newTodos = [...todos]
+      newTodos[index].content = content;
+      setTodos(newTodos)
+    },
+    [todos],
+  )
+
+  const isCheckedToggleAll = useCallback(
+    () => {
+      const index = todos.findIndex(todo => todo.isCompleted === false);
+      if (index === -1) {
+        return true
+      } else {
+        return false
+      }
     },
     [todos],
   )
 
   return (
     <div className="todoapp">
-      <Header onInput={onInput} />
+      <Header onInput={onInput} onToggleAll={onToggleAll} isCheckedToggleAll={isCheckedToggleAll} />
       <Main todos={todos} onRemove={onRemove} onToggle={onToggle} onEdit={onEdit} />
       <Footer />
     </div>
