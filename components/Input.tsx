@@ -4,12 +4,10 @@ import tw from "twin.macro";
 type Props = {
   type: string;
   placeholder?: string;
-  block: boolean;
+  block?: boolean;
 } & typeof defaultProps;
 
-const defaultProps = {
-  block: false,
-};
+const defaultProps = {};
 
 const Input: FunctionComponent<Props> = ({ type, placeholder, block }) => {
   return (
