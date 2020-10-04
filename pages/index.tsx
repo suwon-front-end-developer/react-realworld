@@ -1,12 +1,13 @@
+import "twin.macro";
 import { NextPage } from "next";
 import Head from "next/head";
-import ArticleAPI from "@/api/article";
-import Banner from "@/components/Banner";
-import { Articles, Article } from "@/types/Article";
-import "twin.macro";
+import ArticleAPI from "api/article";
+import { ArticlesType, ArticleType } from "types/Article";
+import Banner from "components/Banner";
+import ArticleItem from "components/article/Item";
 
 interface ArticlePageProps {
-  articles: Article[];
+  articles: ArticleType[];
 }
 
 const Index: NextPage<ArticlePageProps> = ({ articles }) => {
@@ -18,10 +19,10 @@ const Index: NextPage<ArticlePageProps> = ({ articles }) => {
 
       <Banner title="conduit" description="A place to share your knowledge." />
 
-      <div tw="py-4 flex mx-auto max-w-screen-lg">
-        <div tw="px-4 flex-auto">
-          {articles?.map((article) => (
-            <div key={article.slug}>{article.title}</div>
+      <div tw="py-8 flex mx-auto max-w-screen-lg">
+        <div tw="px-4 flex-auto" role="list">
+          {articles?.map((article: ArticleType) => (
+            <ArticleItem key={article.slug} article={article} role="listitem" />
           ))}
         </div>
 
@@ -37,7 +38,7 @@ const Index: NextPage<ArticlePageProps> = ({ articles }) => {
 export default Index;
 
 export async function getStaticProps() {
-  const { articles }: Articles = await ArticleAPI.all();
+  const { articles }: ArticlesType = await ArticleAPI.all();
   return {
     props: {
       articles,

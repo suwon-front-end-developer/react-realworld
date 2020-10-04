@@ -1,13 +1,13 @@
-import { Author } from "@/types/Author";
+import { AuthorType } from "types/Author";
 
-export interface Comments {
-  comments: Comment[];
+export interface CommentsType {
+  comments: CommentType[];
 }
 
-export interface Comment {
+export interface CommentType {
   id: number;
   createdAt: string;
   updatedAt: string;
   body: string;
-  author: Author;
+  author: AuthorType;
 }
