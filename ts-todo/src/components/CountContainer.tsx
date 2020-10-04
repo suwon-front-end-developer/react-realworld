@@ -2,12 +2,6 @@ import React from 'react';
 import TodoCount from './TodoCount';
 import TodoFilter from './TodoFilter';
 
-interface Todo {
-  id: number;
-  content: string;
-  isCompleted: boolean;
-}
-
 interface Props {
   filteredTodoLength: number;
   onFilter: (type: string) => void;

@@ -1,11 +1,5 @@
 import React from 'react';
 
-interface Todo {
-  id: number;
-  content: string;
-  isCompleted: boolean;
-}
-
 interface Props {
   onFilter: (type: string) => void;
 }
