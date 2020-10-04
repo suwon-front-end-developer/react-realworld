@@ -1,19 +1,30 @@
-import { FunctionComponent } from "react";
+import { ChangeEvent, FunctionComponent } from "react";
 import tw from "twin.macro";
 
 type Props = {
-  type: string;
+  type: "text" | "password";
+  name?: string;
+  value?: string;
   placeholder?: string;
   block?: boolean;
-} & typeof defaultProps;
+  onChange?(e: ChangeEvent<HTMLInputElement>): void;
+};
 
-const defaultProps = {};
-
-const Input: FunctionComponent<Props> = ({ type, placeholder, block }) => {
+const Input: FunctionComponent<Props> = ({
+  type,
+  name,
+  value,
+  placeholder,
+  block,
+  onChange,
+}) => {
   return (
     <input
       type={type}
+      name={name}
       placeholder={placeholder}
+      value={value}
+      onChange={onChange}
       css={[
         tw`py-3 px-6 text-lg border rounded-md outline-none focus:border-blue-400`,
         block && tw`block w-full`,
@@ -21,7 +32,5 @@ const Input: FunctionComponent<Props> = ({ type, placeholder, block }) => {
     />
   );
 };
-
-Input.defaultProps = defaultProps;
 
 export default Input;
