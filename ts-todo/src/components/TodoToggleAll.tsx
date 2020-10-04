@@ -7,21 +7,17 @@ interface Props {
 
 const TodoToggleAll = (props: Props) => {
   const { onToggleAll, isCheckedToggleAll } = props
-  const [isChecked, setIsChecked] = useState<boolean>(isCheckedToggleAll())
   const onHandleToggleAll = (event: React.MouseEvent<HTMLLabelElement, MouseEvent>): void => {
-    if (isChecked) {
+    if (isCheckedToggleAll()) {
       onToggleAll(false)
-      setIsChecked(false)
     } else {
       onToggleAll(true)
-      setIsChecked(true)
-
     }
-
   }
+  
   return (
     <div>
-      <input className="toggle-all" type="checkbox" checked={isChecked} />
+      <input className="toggle-all" type="checkbox" checked={isCheckedToggleAll()} />
       <label className="toggle-all-label" onClick={(event) => onHandleToggleAll(event)} ></label>
     </div>
   )

@@ -10,8 +10,8 @@
 
 ### 리스트
 
-- [ ] To Do 존재하지 않을 때는 보이지 않는다.
-- [ ] To Do 1개 이상 있을 때만 등록된 To Do 리스트를 보여준다.
+- [x] To Do 존재하지 않을 때는 보이지 않는다.
+- [x] To Do 1개 이상 있을 때만 등록된 To Do 리스트를 보여준다.
 - [x] To Do 마우스 오버시 `X` 버튼 노출 클릭 시 해당 To Do 삭제 처리
 - [x] To Do 더블 클릭시 수정 입력창 제공
 	- [x] 입력 창에 기존 To Do 내용이 보여진다.
@@ -31,4 +31,3 @@
 - [ ] `Clear completed` 버튼은 Completed To Do 1개 이상일때만 노출된다.
 - [ ] `Clear completed` 버튼 클릭시 모든 Completed To Do가 제거된다
 - [ ] 좌측 하단에 Active To Do 개수를 표시한다.
-   - [ ] `0 items left`로 표시한다. s는 0이거나 2이상일때 붙는다.

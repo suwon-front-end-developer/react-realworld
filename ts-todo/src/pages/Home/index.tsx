@@ -24,6 +24,7 @@ const initialState: Todo[] = [
 
 const Home = () => {
   const [todos, setTodos] = useState<Todo[]>(initialState)
+  const [filterType, setFilter] = useState<string>('all')
   const nextId = useRef<number>(3)
 
   const onInput = useCallback(
@@ -60,7 +61,7 @@ const Home = () => {
   const onToggleAll = useCallback(
     (type) => {
       let newTodos = [...todos]
-      newTodos.map(todo => todo.isCompleted = type)
+      newTodos.forEach(todo => todo.isCompleted = type)
       setTodos(newTodos)
     }, [todos]
   )
@@ -83,6 +84,14 @@ const Home = () => {
       } else {
         return false
       }
+    },
+    [todos],
+  )
+
+  const filteringTodos = useCallback(
+    (type) => {
+      const filteredTodos = todos.filter(todo => todo.isCompleted === type)
+      return filteredTodos
     },
     [todos],
   )
