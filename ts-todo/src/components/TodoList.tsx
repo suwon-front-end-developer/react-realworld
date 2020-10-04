@@ -12,6 +12,7 @@ interface Props {
   onRemove: (id: number) => void;
   onToggle: (id: number) => void;
   onEdit: (id: number, content: string) => void;
+  filteringTodos: (type: string) => Todo[];
 }
 
 interface ItemForm {
@@ -26,8 +27,8 @@ const TodoItem = ({ todo, onRemove, onToggle, onEdit }: ItemForm) => {
   const [value, setValue] = useState(content)
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = (event.target as HTMLInputElement).value
-    setValue(value)
+    const getValue = (event.target as HTMLInputElement).value
+    setValue(getValue)
   }
 
   const onHandleType = (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => {
@@ -37,9 +38,9 @@ const TodoItem = ({ todo, onRemove, onToggle, onEdit }: ItemForm) => {
 
   const onHandleEdit = (event: React.KeyboardEvent): void => {
     const target = (event.target as HTMLElement)
-    const value = (event.target as HTMLInputElement).value
+    const getValue = (event.target as HTMLInputElement).value
     if (event.key === 'Enter') {
-      onEdit(id, value)
+      onEdit(id, getValue)
       target.closest('li')?.classList.remove('editing')
       return
     }
@@ -67,7 +68,7 @@ const TodoItem = ({ todo, onRemove, onToggle, onEdit }: ItemForm) => {
   )
 }
 
-const TodoList = ({ todos, onRemove, onToggle, onEdit }: Props) => {
+const TodoList = ({ todos, onRemove, onToggle, onEdit, filteringTodos }: Props) => {
   return (
     <div>
       <ul id="todo-list" className="todo-list">

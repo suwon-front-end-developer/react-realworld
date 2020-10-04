@@ -1,12 +1,25 @@
-import React from 'react'
-import TodoCount from './TodoCount'
-import TodoFilter from './TodoFilter'
+import React from 'react';
+import TodoCount from './TodoCount';
+import TodoFilter from './TodoFilter';
 
-const CountContainer: React.FC = () => {
+interface Todo {
+  id: number;
+  content: string;
+  isCompleted: boolean;
+}
+
+interface Props {
+  filteredTodoLength: number;
+  onFilter: (type: string) => void;
+}
+
+const CountContainer = (props: Props) => {
+  const { filteredTodoLength, onFilter } = props;
+
   return (
     <div className="count-container">
-      <TodoCount />
-      <TodoFilter />
+      <TodoCount filteredTodoLength={filteredTodoLength} />
+      <TodoFilter onFilter={onFilter} />
     </div>
   )
 }

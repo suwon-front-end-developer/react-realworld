@@ -24,7 +24,7 @@ const initialState: Todo[] = [
 
 const Home = () => {
   const [todos, setTodos] = useState<Todo[]>(initialState)
-  const [filterType, setFilter] = useState<string>('all')
+  const [filterType, setFilterType] = useState<string>('all')
   const nextId = useRef<number>(3)
 
   const onInput = useCallback(
@@ -88,19 +88,43 @@ const Home = () => {
     [todos],
   )
 
-  const filteringTodos = useCallback(
+  const onFilter = useCallback(
     (type) => {
-      const filteredTodos = todos.filter(todo => todo.isCompleted === type)
-      return filteredTodos
+      switch (type) {
+        case 'active':
+          setFilterType('active')
+          break;
+        case 'completed':
+          setFilterType('completed')
+          break;
+        default:
+          setFilterType('all')
+          break;
+      }
     },
-    [todos],
+    [],
   )
+
+  const filteringTodos = useCallback(
+    () => {
+      switch (filterType) {
+        case 'active':
+          return todos.filter(todo => todo.isCompleted === false)
+        case 'completed':
+          return todos.filter(todo => todo.isCompleted === true)
+        default:
+          return todos
+      }
+    },
+    [filterType, todos],
+  )
+
 
   return (
     <div className="todoapp">
       <Header onInput={onInput} onToggleAll={onToggleAll} isCheckedToggleAll={isCheckedToggleAll} />
-      <Main todos={todos} onRemove={onRemove} onToggle={onToggle} onEdit={onEdit} />
-      <Footer />
+      <Main todos={filteringTodos()} onRemove={onRemove} onToggle={onToggle} onEdit={onEdit} filteringTodos={filteringTodos} />
+      <Footer onFilter={onFilter} todoLength={todos.length} filteredTodoLength={filteringTodos().length} />
     </div>
   )
 }

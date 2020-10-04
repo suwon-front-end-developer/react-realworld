@@ -23,11 +23,9 @@
 
 ### 하단 필터
 
-- [ ] To Do 존재하지 않을 때는 보이지 않는다.
-- [ ] To Do 1개 이상 있을 때만 볼 수 있다.
-- [ ] `All` 상태에서는 모든 To Do를 볼 수 있으며 Default 값이다.
-- [ ] `Active` 상태에서는 Active To Do를 볼 수 있다.
-- [ ] `Completed` 상태에서는 Completed To Do를 볼 수 있다.
-- [ ] `Clear completed` 버튼은 Completed To Do 1개 이상일때만 노출된다.
-- [ ] `Clear completed` 버튼 클릭시 모든 Completed To Do가 제거된다
-- [ ] 좌측 하단에 Active To Do 개수를 표시한다.
+- [x] To Do 존재하지 않을 때는 보이지 않는다.
+- [x] To Do 1개 이상 있을 때만 볼 수 있다.
+- [x] `All` 상태에서는 모든 To Do를 볼 수 있으며 Default 값이다.
+- [x] `Active` 상태에서는 Active To Do를 볼 수 있다.
+- [x] `Completed` 상태에서는 Completed To Do를 볼 수 있다.
+- [x] 좌측 하단에 각 상태의 To Do 개수를 표시한다.

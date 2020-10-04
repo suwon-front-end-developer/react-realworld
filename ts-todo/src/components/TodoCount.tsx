@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const TodoCount = () => {
+interface Props {
+  filteredTodoLength: number;
+}
+
+const TodoCount = (props: Props) => {
+  const { filteredTodoLength } = props;
+
   return (
     <div>
-      <span className="todo-count">총 <strong>0</strong> 개</span>
+      <span className="todo-count">총 <strong>{filteredTodoLength}</strong> 개</span>
     </div>
   )
 }

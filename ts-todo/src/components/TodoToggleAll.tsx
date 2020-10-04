@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 interface Props {
   onToggleAll: (type: boolean) => void
@@ -14,7 +14,7 @@ const TodoToggleAll = (props: Props) => {
       onToggleAll(true)
     }
   }
-  
+
   return (
     <div>
       <input className="toggle-all" type="checkbox" checked={isCheckedToggleAll()} />
