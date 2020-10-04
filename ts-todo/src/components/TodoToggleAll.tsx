@@ -17,7 +17,7 @@ const TodoToggleAll = (props: Props) => {
 
   return (
     <div>
-      <input className="toggle-all" type="checkbox" checked={isCheckedToggleAll()} />
+      <input className="toggle-all" type="checkbox" checked={isCheckedToggleAll()} readOnly />
       <label className="toggle-all-label" onClick={(event) => onHandleToggleAll(event)} ></label>
     </div>
   )
